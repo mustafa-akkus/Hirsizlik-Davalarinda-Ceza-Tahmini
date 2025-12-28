@@ -195,7 +195,7 @@ import joblib
 import ipywidgets as widgets
 from IPython.display import display, clear_output
 
-df_ref = pd.read_excel("trainProjeNew.xlsx")
+df_ref = pd.read_excel("datas/trainProjeNew.xlsx")
 
 le_hedef = LabelEncoder()
 le_hedef.fit(df_ref['cezaDurumu'])
