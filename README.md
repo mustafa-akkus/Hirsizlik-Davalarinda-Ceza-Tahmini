@@ -1,6 +1,6 @@
 # Hırsızlık Davalarında Yapay Zeka Destekli Ceza Tahmini
 
-![Python](https://img.shields.io/badge/Python-3.8%2B-blue) ![Scikit-Learn](https://img.shields.io/badge/Library-Scikit--Learn-yellow) ![License](https://img.shields.io/badge/License-MIT-green)
+![Python](https://img.shields.io/badge/Python-3.8%2B-blue) ![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-orange) ![Scikit-Learn](https://img.shields.io/badge/Library-Scikit--Learn-yellow) ![License](https://img.shields.io/badge/License-MIT-green)
 
 Bu proje, hırsızlık davalarına ait verileri analiz ederek, dava parametreleri ve savunma metinleri üzerinden olası ceza durumunu (Hapis, Beraat vb.) öngören bir karar destek yazılımıdır.
 
@@ -8,47 +8,51 @@ Atatürk Üniversitesi Yapay Zeka ve Veri Mühendisliği Bölümü öğrencileri
 
 ## Proje Mimarisi ve İşleyiş
 
-Sistem iki temel bileşenden oluşmaktadır:
+Sistem, kullanıcı etkileşimini en üst düzeye çıkarmak amacıyla Jupyter Notebook tabanlı bir arayüz üzerine inşa edilmiştir:
 
-1.  **Ana Uygulama (`app.py`):** Son kullanıcının etkileşime geçtiği nihai yazılımdır. Gerekli modelleri ve algoritmaları kullanarak, girilen veriler ışığında doğrudan sonuç üretir.
-2.  **Geliştirme Ortamı (`notebooks/`):** Projenin Ar-Ge sürecinde kullanılan, veri üretimi, model eğitimi ve test çalışmalarını içeren referans kodları barındırır. Standart kullanım için bu dosyaların çalıştırılmasına gerek yoktur.
+1.  **Ana Simülasyon (`app.ipynb`):** Son kullanıcının etkileşime geçtiği ana dosyadır. İçerisinde barındırdığı görsel arayüz (GUI) bileşenleri (butonlar, kaydırma çubukları vb.) sayesinde kod yazmaya gerek kalmadan tahminleme yapılmasını sağlar.
+2.  **Geliştirme Ortamı (`notebooks/`):** Projenin Ar-Ge sürecinde kullanılan, veri analizi, model eğitimi ve test çalışmalarını içeren referans kodları barındırır.
 
 ### Temel Özellikler
 
-* **Sonuç Odaklı Analiz:** Kullanıcıdan alınan yapılandırılmış veriler (yaş, mal değeri vb.) ve metin verileri (ifadeler) işlenerek doğrudan tahmin çıktısı sunulur.
-* **Hibrit Değerlendirme:** Sistem, sayısal veriler ile metin madenciliği (NLP) yöntemlerini bir arada kullanarak bütüncül bir değerlendirme yapar.
-* **Hızlı Entegrasyon:** Önceden hazırlanmış mimari sayesinde, karmaşık eğitim süreçlerine ihtiyaç duymadan tahminleme gerçekleştirir.
+* **İnteraktif Arayüz:** `ipywidgets` teknolojisi kullanılarak hazırlanan kullanıcı dostu panel üzerinden kolay veri girişi.
+* **Hibrit Değerlendirme:** Sayısal veriler (yaş, mal değeri) ile metin madenciliği (NLP - ifade analizi) yöntemlerini birleştirerek bütüncül sonuç üretimi.
+* **Anlık Tahmin:** Eğitilmiş modeller üzerinden saniyeler içerisinde karar analizi.
 
 ## Kurulum ve Kullanım
 
-Sistemi çalıştırmak için aşağıdaki adımlar izlenmelidir:
+Sistemi ve arayüzü çalıştırmak için aşağıdaki adımlar izlenmelidir:
 
 1.  **Repoyu Klonlayın:**
     ```bash
-    git clone [https://github.com/kullaniciadi/Hirsizlik-Ceza-Tahmini.git](https://github.com/kullaniciadi/Hirsizlik-Ceza-Tahmini.git)
-    cd Hirsizlik-Ceza-Tahmini
+    git clone https://github.com/mustafa-akkus/Hirsizlik-Davalarinda-Ceza-Tahmini.git
+    cd Hirsizlik-Davalarinda-Ceza-Tahmini
     ```
 
 2.  **Gerekli Kütüphaneleri Yükleyin:**
     ```bash
-    pip install pandas numpy matplotlib seaborn scikit-learn ipywidgets joblib openpyxl
+    pip install pandas numpy matplotlib seaborn scikit-learn ipywidgets joblib openpyxl notebook
     ```
 
 3.  **Uygulamayı Başlatın:**
-    Tahmin sistemini çalıştırmak için ana dizindeki `app.py` dosyasını çalıştırmanız yeterlidir:
+    Terminal ekranına aşağıdaki kodu yazarak Jupyter ortamını başlatın:
     ```bash
-    python app.py
+    jupyter notebook
     ```
+    
+    * Açılan tarayıcı penceresinde **`app.ipynb`** dosyasına tıklayın.
+    * Üst menüden **"Run"** (veya "Cell > Run All") seçeneğini kullanarak sistemi aktif hale getirin.
+    * Sayfanın en altında belirecek olan **Suç Analiz ve Tahmin Sistemi** paneli üzerinden veri girişi yapabilirsiniz.
 
 ## Kullanılan Teknolojiler
 
 Proje altyapısında aşağıdaki teknolojilerden yararlanılmıştır:
 
 * **Programlama Dili:** Python
-* **Veri Analizi ve İşleme:** Pandas, NumPy
-* **Makine Öğrenmesi:** Scikit-Learn (Random Forest, Decision Tree)
+* **Arayüz:** Jupyter Notebook & IPyWidgets
+* **Veri Analizi:** Pandas, NumPy
+* **Makine Öğrenmesi:** Scikit-Learn (Random Forest)
 * **Doğal Dil İşleme:** TF-IDF Vektörleştirme
-* **Model Yönetimi:** Joblib
 
 ## Proje Ekibi (Grup 7)
 
